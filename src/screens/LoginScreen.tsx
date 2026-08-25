@@ -74,7 +74,7 @@ export default function LoginScreen({ navigate }: Props) {
             <p className="font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#94a3b8] text-[12px] tracking-[0.24px] uppercase">Username</p>
             <div className="bg-[rgba(255,255,255,0.04)] content-stretch flex h-[52px] items-center px-[16px] relative rounded-[14px] shrink-0 w-full">
               <div aria-hidden className="absolute border border-[rgba(255,255,255,0.08)] border-solid inset-0 pointer-events-none rounded-[14px]" />
-              <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[15px] text-white">michaelwiseman</p>
+              <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[15px] text-white">michaelharrison</p>
             </div>
           </div>
 
