@@ -62,7 +62,7 @@ export default function LoginScreen({ navigate }: Props) {
         {/* Welcome text */}
         <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full">
           <p className="font-['Young_Serif:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[28px] text-white">Welcome Back</p>
-          <p className="font-['Geist:Regular',sans-serif] font-normal leading-[1.5] relative shrink-0 text-[#94a3b8] text-[14px]">Sign in to your demo account</p>
+          <p className="font-['Geist:Regular',sans-serif] font-normal leading-[1.5] relative shrink-0 text-[#94a3b8] text-[14px]">Sign in to your account</p>
         </div>
 
         {/* Form card */}
