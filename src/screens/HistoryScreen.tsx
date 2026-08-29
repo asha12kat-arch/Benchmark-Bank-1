@@ -71,7 +71,7 @@ export default function HistoryScreen({ navigate }: Props) {
                     <p className="font-['Geist:SemiBold',sans-serif] font-semibold relative shrink-0 text-[14px] text-white truncate max-w-full">{t.merchant}</p>
                     <p className="font-['Geist:Regular',sans-serif] font-normal relative shrink-0 text-[#94a3b8] text-[12px]">{t.category} · {t.date}</p>
                   </div>
-                  <p className={`font-['Geist:SemiBold',sans-serif] font-semibold relative shrink-0 max-w-[45%] text-[14px] ${t.amount > 0 ? "text-[#15803d]" : "text-[#f87171]"}`}>
+                  <p className={`font-['Geist:SemiBold',sans-serif] font-semibold relative shrink-0 w-[110px] text-[14px] ${t.amount > 0 ? "text-[#15803d]" : "text-[#f87171]"}`}>
                     {t.amount > 0 ? "+" : ""}{t.amount < 0 ? "-" : ""}${Math.abs(t.amount).toFixed(2)}
                   </p>
                 </div>
