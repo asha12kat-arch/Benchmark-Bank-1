@@ -1,3 +1,4 @@
+import { useState } from "react";
 import svgPaths from "../../imports/svg-lrf4y8tqyk";
 
 interface Props {
@@ -28,7 +29,14 @@ function EyeIcon() {
   );
 }
 
-export default function LoginScreen({ navigate }: Props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const LOGIN_USERNAME = "donaldhighhouse";
+  const LOGIN_PASSWORD = "Donald@19";
   return (
     <div className="bg-gradient-to-b content-stretch flex flex-col from-[#07111f] items-start overflow-hidden relative size-full to-[#0a1628]">
       {/* bg glows */}
@@ -74,7 +82,12 @@ export default function LoginScreen({ navigate }: Props) {
             <p className="font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#94a3b8] text-[12px] tracking-[0.24px] uppercase">Username</p>
             <div className="bg-[rgba(255,255,255,0.04)] content-stretch flex h-[52px] items-center px-[16px] relative rounded-[14px] shrink-0 w-full">
               <div aria-hidden className="absolute border border-[rgba(255,255,255,0.08)] border-solid inset-0 pointer-events-none rounded-[14px]" />
-              <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[15px] text-white">donaldhighhouse</p>
+              <input
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  placeholder="Enter username"
+  className="bg-transparent outline-none border-0 w-full font-['Geist:Regular',sans-serif] text-[15px] text-white placeholder:text-[#64748b]"
+/>
             </div>
           </div>
 
@@ -83,8 +96,21 @@ export default function LoginScreen({ navigate }: Props) {
             <p className="font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#94a3b8] text-[12px] tracking-[0.24px] uppercase">Password</p>
             <div className="bg-[rgba(255,255,255,0.04)] content-stretch flex h-[52px] items-center justify-between px-[16px] relative rounded-[14px] shrink-0 w-full">
               <div aria-hidden className="absolute border border-[rgba(255,255,255,0.08)] border-solid inset-0 pointer-events-none rounded-[14px]" />
-              <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[15px] text-white">••••••••••••</p>
-              <EyeIcon />
+              <input
+  type={showPassword ? "text" : "password"}
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  placeholder="Enter password"
+  className="bg-transparent outline-none border-0 w-full font-['Geist:Regular',sans-serif] text-[15px] text-white placeholder:text-[#64748b]"
+/>
+              <button
+  type="button"
+  onClick={() => setShowPassword(!showPassword)}
+  className="bg-transparent border-0 p-0 cursor-pointer"
+  aria-label={showPassword ? "Hide password" : "Show password"}
+>
+  <EyeIcon />
+</button>
             </div>
           </div>
 
@@ -100,12 +126,41 @@ export default function LoginScreen({ navigate }: Props) {
           {/* Buttons */}
           <div className="content-stretch flex flex-col gap-[12px] items-start pt-[16px] relative shrink-0 w-full">
             <button
-              onClick={() => navigate("home")}
+              onClick={() => {
+  setError("");
+
+  if (!username || !password) {
+    setError("Please enter your username and password.");
+    return;
+  }
+
+  if (username !== LOGIN_USERNAME || password !== LOGIN_PASSWORD) {
+    setError("Invalid username or password.");
+    return;
+  }
+
+  setIsLoading(true);
+
+  setTimeout(() => {
+    navigate("home");
+  }, 1000);
+}}
               className="bg-[#8b1a2b] content-stretch cursor-pointer flex h-[52px] items-center justify-center relative rounded-[14px] shrink-0 w-full border-0"
               style={{boxShadow: "0px 10px 12px rgba(139,26,43,0.2)"}}
             >
-              <p className="font-['Geist:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[16px] text-white">Sign In</p>
+              {isLoading ? (
+  <div className="size-[20px] rounded-full border-2 border-[rgba(255,255,255,0.35)] border-t-white animate-spin" />
+) : (
+  <p className="font-['Geist:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[16px] text-white">
+    Sign In
+  </p>
+)}
             </button>
+            {error && (
+  <p className="font-['Geist:Regular',sans-serif] text-[13px] text-[#f87171] text-center w-full">
+    {error}
+  </p>
+)}
             <button className="bg-transparent content-stretch cursor-pointer flex h-[52px] items-center justify-center relative rounded-[14px] shrink-0 w-full border-[1.5px] border-[#8b1a2b] border-solid">
               <p className="font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#8b1a2b] text-[16px]">Use other Account</p>
             </button>
