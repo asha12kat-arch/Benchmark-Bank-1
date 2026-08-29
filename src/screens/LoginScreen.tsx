@@ -29,6 +29,7 @@ function EyeIcon() {
   );
 }
 
+export default function LoginScreen({ navigate }: Props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -37,6 +38,9 @@ function EyeIcon() {
 
   const LOGIN_USERNAME = "donaldhighhouse";
   const LOGIN_PASSWORD = "Donald@19";
+
+
+  
   return (
     <div className="bg-gradient-to-b content-stretch flex flex-col from-[#07111f] items-start overflow-hidden relative size-full to-[#0a1628]">
       {/* bg glows */}
