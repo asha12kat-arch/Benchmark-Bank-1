@@ -62,7 +62,7 @@ export default function HistoryScreen({ navigate }: Props) {
           {/* Transaction List */}
           <div className="bg-[#0b1524] content-stretch flex flex-col items-start relative rounded-[20px] shrink-0 w-full overflow-hidden" style={{boxShadow: "0px 10px 24px 0px rgba(139,26,43,0.12), 0px 18px 40px 0px rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.08)"}}>
             {TRANSACTIONS.map((t, i) => (
-              <div key={t.id}>
+              <div key={t.id} className="w-full min-w-0">
                 <div className="content-stretch flex items-center gap-[12px] p-[14px] relative shrink-0 w-full min-w-0">
                   <div className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] flex items-center justify-center relative rounded-[14px] shrink-0 size-[44px]" style={{border: "1px solid rgba(255,255,255,0.08)"}}>
                     <span className="font-['Geist:Bold',sans-serif] text-[14px] text-white">{t.icon}</span>
