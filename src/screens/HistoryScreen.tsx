@@ -20,7 +20,7 @@ export default function HistoryScreen({ navigate }: Props) {
         <div className="content-stretch flex flex-col gap-[20px] items-start p-[16px] relative w-full">
 
           {/* Header */}
-          <div className="content-stretch flex items-center gap-[12px] p-[14px] relative shrink-0 w-full min-w-0>
+          <div className="content-stretch flex items-center gap-[12px] p-[14px] relative shrink-0 w-full min-w-0">
             <button onClick={() => navigate("home")} className="bg-[rgba(255,255,255,0.04)] content-stretch cursor-pointer flex flex-col items-start p-[10px] relative rounded-[20px] shrink-0 border-0" style={{boxShadow: "0px 10px 12px rgba(0,0,0,0.12)"}}>
               <div aria-hidden className="absolute border border-[rgba(255,255,255,0.08)] border-solid inset-0 pointer-events-none rounded-[20px]" />
               <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
